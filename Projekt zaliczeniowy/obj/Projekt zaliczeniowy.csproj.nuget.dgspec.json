@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kuba\\Desktop\\Projekty C#\\Projekt zaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj": {}
+    "E:\\Kuba\\Documents\\GitHub\\ProjektZaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kuba\\Desktop\\Projekty C#\\Projekt zaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj": {
+    "E:\\Kuba\\Documents\\GitHub\\ProjektZaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kuba\\Desktop\\Projekty C#\\Projekt zaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj",
+        "projectUniqueName": "E:\\Kuba\\Documents\\GitHub\\ProjektZaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj",
         "projectName": "Projekt zaliczeniowy",
-        "projectPath": "C:\\Users\\Kuba\\Desktop\\Projekty C#\\Projekt zaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj",
+        "projectPath": "E:\\Kuba\\Documents\\GitHub\\ProjektZaliczeniowy\\Projekt zaliczeniowy\\Projekt zaliczeniowy.csproj",
         "packagesPath": "C:\\Users\\Kuba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kuba\\Desktop\\Projekty C#\\Projekt zaliczeniowy\\Projekt zaliczeniowy\\obj\\",
+        "outputPath": "E:\\Kuba\\Documents\\GitHub\\ProjektZaliczeniowy\\Projekt zaliczeniowy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kuba\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,26 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

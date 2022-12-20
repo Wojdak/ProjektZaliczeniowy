@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Projekt_zaliczeniowy.Models;
+using System;
+
 namespace Projekt_zaliczeniowy
 {
     public class Program
@@ -8,6 +12,8 @@ namespace Projekt_zaliczeniowy
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AppDbContext>(
+            options => options.UseSqlServer(builder.Configuration["Data:Connection"]));
 
             var app = builder.Build();
 

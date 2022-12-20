@@ -8,37 +8,117 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Projekt_zaliczeniowy
 build_property.RootNamespace = Projekt_zaliczeniowy
-build_property.ProjectDir = C:\Users\Kuba\Desktop\Projekty C#\Projekt zaliczeniowy\Projekt zaliczeniowy\
+build_property.ProjectDir = E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Kuba\Desktop\Projekty C#\Projekt zaliczeniowy\Projekt zaliczeniowy
+build_property.MSBuildProjectDirectory = E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/Home/Index.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/Home/Privacy.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/Shared/Error.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Match/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Match/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Match/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Match/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Match/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Player/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Player/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Player/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Player/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Player/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/_ViewImports.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Team/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Team/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Team/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Team/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Team/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Ticket/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Ticket/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Ticket/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Ticket/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Ticket/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlja2V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/_ViewStart.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kuba/Desktop/Projekty C\#/Projekt zaliczeniowy/Projekt zaliczeniowy/Views/Shared/_Layout.cshtml]
+[E:/Kuba/Documents/GitHub/ProjektZaliczeniowy/Projekt zaliczeniowy/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tn6wg70r8f
