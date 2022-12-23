@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Projekt_zaliczeniowy.Models.Match>
-
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,6 +11,12 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HostId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GuestId)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
@@ -27,6 +32,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                <a asp-action="Details" asp-controller="Team" asp-route-id="@item.HostId">@item.HostId</a>
+            </td>
+            <td>
+                    <a asp-action="Details" asp-controller="Team" asp-route-id="@item.GuestId">@item.GuestId</a>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>

@@ -47,7 +47,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // GET: Player/Create
         public IActionResult Create()
         {
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "City");
+            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Name");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace Projekt_zaliczeniowy.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "City", player.TeamId);
+            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Name", player.TeamId);
             return View(player);
         }
 
@@ -81,7 +81,7 @@ namespace Projekt_zaliczeniowy.Controllers
             {
                 return NotFound();
             }
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "City", player.TeamId);
+            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Name", player.TeamId);
             return View(player);
         }
 
@@ -117,7 +117,7 @@ namespace Projekt_zaliczeniowy.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "City", player.TeamId);
+            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Name", player.TeamId);
             return View(player);
         }
 

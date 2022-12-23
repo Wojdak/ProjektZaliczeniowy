@@ -21,7 +21,8 @@ namespace Projekt_zaliczeniowy.Controllers
         // GET: Team
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Teams.ToListAsync());
+            var appDbContext = _context.Teams;
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: Team/Details/5
@@ -32,7 +33,7 @@ namespace Projekt_zaliczeniowy.Controllers
                 return NotFound();
             }
 
-            var team = await _context.Teams
+            var team = await _context.Teams.Include(t=>t.Players)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (team == null)
             {

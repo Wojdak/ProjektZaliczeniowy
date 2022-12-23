@@ -10,6 +10,7 @@ namespace Projekt_zaliczeniowy.Models
         public Match()
         {
             Tickets = new List<Ticket>();
+            Teams = new List<Team>();
         }
 
         [Key]
@@ -17,18 +18,22 @@ namespace Projekt_zaliczeniowy.Models
         public int Id { get; set; }
         [Required]
         [Column("host_team")]
-        public Team Host { get; set; }
+        [Display(Name = "Host team")]
+        public int HostId { get; set; }
         [Required]
         [Column("guest_team")]
-        public Team Guest { get; set; }
+        [Display(Name = "Guest team")]
+        public int GuestId { get; set; }
         [Required]
         [Column("date")]
         public DateTime Date { get; set; }
         [Required]
         [Column("tickets")]
+        [Display(Name = "Number of tickets")]
         public int Tickets_amount { get; set; }
         [Column("score")]
         public string? Score { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
     }
 }

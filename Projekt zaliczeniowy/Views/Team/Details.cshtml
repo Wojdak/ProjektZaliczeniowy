@@ -1,7 +1,7 @@
 ﻿@model Projekt_zaliczeniowy.Models.Team
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Players";
 }
 
 <h1>Details</h1>
@@ -33,6 +33,15 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Stadium)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Players)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var x in Model.Players.ToList())
+            {
+                <a asp-action="Details" asp-controller="Player" asp-route-id="@x.Id">@x.Name</a>
+            }
         </dd>
     </dl>
 </div>

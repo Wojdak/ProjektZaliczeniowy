@@ -10,6 +10,7 @@ namespace Projekt_zaliczeniowy.Models
         public Team()
         {
             Players = new List<Player>();
+            Matches=new List<Match>();
         }
 
         [Key]
@@ -28,5 +29,6 @@ namespace Projekt_zaliczeniowy.Models
         [Column("stadium")]
         public string Stadium { get; set; }
         public virtual ICollection<Player> Players { get; set; }
+        public virtual ICollection<Match> Matches { get; set; }
     }
 }
