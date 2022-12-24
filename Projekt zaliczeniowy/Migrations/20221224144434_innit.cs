@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Projektzaliczeniowy.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class innit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -72,11 +72,11 @@ namespace Projektzaliczeniowy.Migrations
                 columns: table => new
                 {
                     MatchesId = table.Column<int>(type: "int", nullable: false),
-                    TeamsId = table.Column<int>(type: "int", nullable: false)
+                    TeamsListId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MatchTeam", x => new { x.MatchesId, x.TeamsId });
+                    table.PrimaryKey("PK_MatchTeam", x => new { x.MatchesId, x.TeamsListId });
                     table.ForeignKey(
                         name: "FK_MatchTeam_Matches_MatchesId",
                         column: x => x.MatchesId,
@@ -84,8 +84,8 @@ namespace Projektzaliczeniowy.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MatchTeam_Teams_TeamsId",
-                        column: x => x.TeamsId,
+                        name: "FK_MatchTeam_Teams_TeamsListId",
+                        column: x => x.TeamsListId,
                         principalTable: "Teams",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -116,9 +116,9 @@ namespace Projektzaliczeniowy.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MatchTeam_TeamsId",
+                name: "IX_MatchTeam_TeamsListId",
                 table: "MatchTeam",
-                column: "TeamsId");
+                column: "TeamsListId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Players_TeamId",

@@ -14,13 +14,16 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="HostId" class="control-label"></label>
-                <select asp-for="HostId" class="form-control" asp-items="ViewBag.TeamId"></select>
+                <select asp-for="HostId" class="form-control" asp-items=ViewBag.selectTeam></select>
                 <span asp-validation-for="HostId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="GuestId" class="control-label"></label>
-                <select asp-for="GuestId" class="form-control" asp-items="ViewBag.TeamId"></select>
+                <select asp-for="GuestId" class="form-control" asp-items=ViewBag.selectTeam></select>
                 <span asp-validation-for="GuestId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="TeamsList" class="form-control"/>
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
@@ -33,8 +36,7 @@
                 <span asp-validation-for="Tickets_amount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Score" class="control-label"></label>
-                <input asp-for="Score" class="form-control" />
+                <input type="hidden" asp-for="Score" class="form-control" />
                 <span asp-validation-for="Score" class="text-danger"></span>
             </div>
             <div class="form-group">

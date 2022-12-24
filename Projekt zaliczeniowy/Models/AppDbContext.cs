@@ -14,8 +14,7 @@ namespace Projekt_zaliczeniowy.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-            
+
         }
     }
 }

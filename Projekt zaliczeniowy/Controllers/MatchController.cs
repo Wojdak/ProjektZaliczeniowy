@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_zaliczeniowy.Models;
-using Projekt_zaliczeniowy.Models.ViewModels;
 
 namespace Projekt_zaliczeniowy.Controllers
 {
@@ -22,7 +21,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // GET: Match
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Matches.Include(m=>m.Teams).ToListAsync());
+            return View(await _context.Matches.Include(x=>x.TeamsList).ToListAsync());
         }
 
         // GET: Match/Details/5
@@ -47,7 +46,9 @@ namespace Projekt_zaliczeniowy.Controllers
         // GET: Match/Create
         public IActionResult Create()
         {
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Name");
+            //Match match = new Match();
+            //_context.Teams.ToList().ForEach(x => match.TeamsList.Add(x));
+            ViewData["selectTeam"] = new SelectList(_context.Teams, "Id", "Name");
             return View();
         }
 
@@ -56,10 +57,13 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Score")] Match match)
+        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,TeamsList,Date,Tickets_amount,Score")] Match match)
         {
-            if (ModelState.IsValid & match.HostId!=match.GuestId)
+            if (ModelState.IsValid)
             {
+                match.TeamsList.Add(FindTeam(match.HostId));
+                match.TeamsList.Add(FindTeam(match.GuestId));
+
                 _context.Add(match);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -76,6 +80,7 @@ namespace Projekt_zaliczeniowy.Controllers
             }
 
             var match = await _context.Matches.FindAsync(id);
+            ViewData["selectTeam"] = new SelectList(_context.Teams, "Id", "Name");
             if (match == null)
             {
                 return NotFound();
@@ -88,7 +93,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Date,Tickets_amount,Score")] Match match)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,TeamsList,Date,Tickets_amount,Score")] Match match)
         {
             if (id != match.Id)
             {
@@ -99,6 +104,12 @@ namespace Projekt_zaliczeniowy.Controllers
             {
                 try
                 {
+                    _context.Database.ExecuteSqlRaw($"DELETE FROM [MatchTeam] WHERE MatchesId={match.Id}");
+
+                    match.TeamsList.Clear();
+                    match.TeamsList.Add(FindTeam(match.HostId));
+                    match.TeamsList.Add(FindTeam(match.GuestId));
+
                     _context.Update(match);
                     await _context.SaveChangesAsync();
                 }
@@ -158,6 +169,11 @@ namespace Projekt_zaliczeniowy.Controllers
         private bool MatchExists(int id)
         {
           return _context.Matches.Any(e => e.Id == id);
+        }
+
+        private Team FindTeam(int id)
+        {
+            return _context.Teams.Find(id);
         }
     }
 }

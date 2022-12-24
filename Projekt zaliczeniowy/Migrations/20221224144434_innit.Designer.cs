@@ -12,8 +12,8 @@ using Projekt_zaliczeniowy.Models;
 namespace Projektzaliczeniowy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221220165646_init")]
-    partial class init
+    [Migration("20221224144434_innit")]
+    partial class innit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,12 +30,12 @@ namespace Projektzaliczeniowy.Migrations
                     b.Property<int>("MatchesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeamsId")
+                    b.Property<int>("TeamsListId")
                         .HasColumnType("int");
 
-                    b.HasKey("MatchesId", "TeamsId");
+                    b.HasKey("MatchesId", "TeamsListId");
 
-                    b.HasIndex("TeamsId");
+                    b.HasIndex("TeamsListId");
 
                     b.ToTable("MatchTeam");
                 });
@@ -81,7 +81,8 @@ namespace Projektzaliczeniowy.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date_of_birth")
+                    b.Property<DateTime?>("Date_of_birth")
+                        .IsRequired()
                         .HasColumnType("datetime2")
                         .HasColumnName("date_of_birth");
 
@@ -193,7 +194,7 @@ namespace Projektzaliczeniowy.Migrations
 
                     b.HasOne("Projekt_zaliczeniowy.Models.Team", null)
                         .WithMany()
-                        .HasForeignKey("TeamsId")
+                        .HasForeignKey("TeamsListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -10,7 +10,7 @@ namespace Projekt_zaliczeniowy.Models
         public Match()
         {
             Tickets = new List<Ticket>();
-            Teams = new List<Team>();
+            TeamsList = new List<Team>();
         }
 
         [Key]
@@ -33,7 +33,8 @@ namespace Projekt_zaliczeniowy.Models
         public int Tickets_amount { get; set; }
         [Column("score")]
         public string? Score { get; set; }
+        [HiddenInput]
+        public List<Team> TeamsList { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
-        public virtual ICollection<Team> Teams { get; set; }
     }
 }

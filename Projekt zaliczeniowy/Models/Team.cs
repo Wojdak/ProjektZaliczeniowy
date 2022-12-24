@@ -10,7 +10,7 @@ namespace Projekt_zaliczeniowy.Models
         public Team()
         {
             Players = new List<Player>();
-            Matches=new List<Match>();
+            Matches = new List<Match>();
         }
 
         [Key]
