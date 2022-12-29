@@ -31,6 +31,10 @@ namespace Projekt_zaliczeniowy.Models
         [Column("tickets")]
         [Display(Name = "Number of tickets")]
         public int Tickets_amount { get; set; }
+        [Required]
+        [Column("price")]
+        [Display(Name = "Price")]
+        public int Price { get; set; }
         [Column("score")]
         public string? Score { get; set; }
         [HiddenInput]

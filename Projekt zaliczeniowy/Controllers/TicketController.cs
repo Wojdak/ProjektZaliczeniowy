@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_zaliczeniowy.Models;
@@ -12,8 +13,14 @@ namespace Projekt_zaliczeniowy.Controllers
     public class TicketController : Controller
     {
         private readonly AppDbContext _context;
+        IDictionary<string, int> price = new Dictionary<string, int>() { 
+            {"Normal", 80},
+            {"Student", 60},
+            {"Senior", 50},
+            {"Child", 20},
+        };
 
-        public TicketController(AppDbContext context)
+    public TicketController(AppDbContext context)
         {
             _context = context;
         }
@@ -56,15 +63,16 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Amount,Seats,Price,Status,MatchId")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("Id,howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
+                ticket.Status = "Completed";
                 _context.Add(ticket);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MatchId"] = new SelectList(_context.Matches, "Id", "Id", ticket.MatchId);
+            ViewData["MatchId"] = new SelectList(_context.Matches, "Id", "Id");
             return View(ticket);
         }
 
@@ -90,7 +98,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Amount,Seats,Price,Status,MatchId")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
         {
             if (id != ticket.Id)
             {

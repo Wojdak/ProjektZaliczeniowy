@@ -21,10 +21,13 @@
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
+                <span>Stadium</span>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Tickets_amount)
             </th>
             <th>
-                <span>Stadium</span>
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th></th>
         </tr>
@@ -54,9 +57,6 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tickets_amount)
-            </td>
-            <td>
                     @if (@item.TeamsList.FirstOrDefault(x => x.Id == item.HostId) == null)
                     {
                         <span>Unknown data</span>
@@ -66,11 +66,17 @@
                        @item.TeamsList.First(x => x.Id == item.HostId).Stadium
                     }
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tickets_amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>  |
-                <a asp-action="Create" asp-controller="Ticket" asp-route-id="@item.Id">Buy ticket</a>
+                <a asp-action="Create" asp-controller="Ticket">Buy ticket</a>
             </td>
         </tr>
 }

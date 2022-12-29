@@ -57,7 +57,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,TeamsList,Date,Tickets_amount,Score")] Match match)
+        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Score,TeamsList")] Match match)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,TeamsList,Date,Tickets_amount,Score")] Match match)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Score,TeamsList")] Match match)
         {
             if (id != match.Id)
             {

@@ -11,19 +11,18 @@ namespace Projekt_zaliczeniowy.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        [Column("amount")]
-        public int Amount { get; set; }
+        [Column("howManyPeople")]
+        public int howManyPeople { get; set; }
         [Required]
         [Column("seats")]
-        public string Seats { get; set; }
+        public string? Seats { get; set; }
         [Required]
-        [Column("price")]
-        public decimal Price { get; set; }
+        [Column("totalPrice")]
+        public int totalPrice { get; set; }
         [HiddenInput]
         [Column("status")]
         public string? Status { get; set; }
-
         public int MatchId { get; set; }
-        public virtual Match Match { get; set; }
+        public virtual Match? Match { get; set; }
     }
 }
