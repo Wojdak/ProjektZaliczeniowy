@@ -19,8 +19,9 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Match
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
+
             return View(await _context.Matches.Include(x=>x.TeamsList).ToListAsync());
         }
 

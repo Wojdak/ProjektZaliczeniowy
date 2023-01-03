@@ -19,7 +19,6 @@ namespace Projekt_zaliczeniowy.Models
         [Required]
         [Column("totalPrice")]
         public int totalPrice { get; set; }
-        [HiddenInput]
         [Column("status")]
         public string? Status { get; set; }
         public int MatchId { get; set; }

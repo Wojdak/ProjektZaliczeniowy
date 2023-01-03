@@ -19,8 +19,14 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Team
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search)
         {
+            ViewData["GetDetails"] = search;
+            if (!String.IsNullOrEmpty(search))
+            {
+                var query = GetTeamsBySearch(search);
+                return View(query);
+            }
             var appDbContext = _context.Teams;
             return View(await appDbContext.ToListAsync());
         }
@@ -156,6 +162,12 @@ namespace Projekt_zaliczeniowy.Controllers
         private bool TeamExists(int id)
         {
           return _context.Teams.Any(e => e.Id == id);
+        }
+
+        public IEnumerable<Team> GetTeamsBySearch(string search)
+        {
+            var result = _context.Teams.Where(x => x.Name.Contains(search) || x.Country.Contains(search) || x.City.Contains(search) || x.Stadium.Contains(search));
+            return result;
         }
     }
 }

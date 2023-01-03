@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_zaliczeniowy.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Projekt_zaliczeniowy.Controllers
 {
@@ -19,8 +21,16 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Player
-        public async Task<IActionResult> Index()
+        
+        public async Task<IActionResult> Index(string? search)
         {
+            ViewData["GetDetails"] = search;
+            if (!String.IsNullOrEmpty(search))
+            {
+                var query = GetPlayersBySearch(search);
+                return View(query);
+            }
+
             var appDbContext = _context.Players.Include(p => p.Team);
             return View(await appDbContext.ToListAsync());
         }
@@ -162,6 +172,12 @@ namespace Projekt_zaliczeniowy.Controllers
         private bool PlayerExists(int id)
         {
           return _context.Players.Any(e => e.Id == id);
+        }
+
+        public IEnumerable<Player> GetPlayersBySearch(string search)
+        {
+            var result = _context.Players.Where(x => x.Name.Contains(search) || x.Surname.Contains(search) || x.Nationality.Contains(search) ||x.Position.Contains(search) || x.Team.Name.Contains(search)).Include(p => p.Team);
+            return result;
         }
     }
 }

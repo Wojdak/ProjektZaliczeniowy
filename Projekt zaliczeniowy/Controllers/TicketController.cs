@@ -52,10 +52,14 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Ticket/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["MatchId"] = new SelectList(_context.Matches, "Id", "Id");
-            return View();
+            Match match = _context.Matches.Find(id);
+            Ticket ticket = new Ticket();
+            ticket.MatchId = match.Id;
+            ticket.totalPrice = match.Price;
+            ticket.Status = "In process";
+            return View(ticket);
         }
 
         // POST: Ticket/Create
@@ -63,16 +67,16 @@ namespace Projekt_zaliczeniowy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
                 ticket.Status = "Completed";
+                ticket.totalPrice *= ticket.howManyPeople;
                 _context.Add(ticket);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MatchId"] = new SelectList(_context.Matches, "Id", "Id");
             return View(ticket);
         }
 
@@ -89,7 +93,6 @@ namespace Projekt_zaliczeniowy.Controllers
             {
                 return NotFound();
             }
-            ViewData["MatchId"] = new SelectList(_context.Matches, "Id", "Id", ticket.MatchId);
             return View(ticket);
         }
 
@@ -109,6 +112,9 @@ namespace Projekt_zaliczeniowy.Controllers
             {
                 try
                 {
+                    var _match = _context.Matches.Find(ticket.MatchId);
+                    ticket.totalPrice = ticket.howManyPeople*_match.Price;
+                    ticket.Status = "Edited";
                     _context.Update(ticket);
                     await _context.SaveChangesAsync();
                 }
