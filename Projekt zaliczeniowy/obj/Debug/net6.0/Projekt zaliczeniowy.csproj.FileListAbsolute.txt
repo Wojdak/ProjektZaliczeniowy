@@ -282,3 +282,11 @@ E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\obj\Debug\net6
 E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\obj\Debug\net6.0\Projekt zaliczeniowy.pdb
 E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\obj\Debug\net6.0\Projekt zaliczeniowy.genruntimeconfig.cache
 E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\obj\Debug\net6.0\ref\Projekt zaliczeniowy.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\obj\Debug\net6.0\Projekt zaliczeniowy.MvcApplicationPartsAssemblyInfo.cs

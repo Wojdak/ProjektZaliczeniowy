@@ -8,7 +8,7 @@ namespace Projekt_zaliczeniowy.Models
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 

@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Projekt_zaliczeniowy.Models;
 using System;
+using Microsoft.AspNetCore.Identity;
+using Projekt_zaliczeniowy.Data;
 
 namespace Projekt_zaliczeniowy
 {
@@ -9,11 +11,18 @@ namespace Projekt_zaliczeniowy
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+                        var connectionString = builder.Configuration.GetConnectionString("IdentityContextConnection") ?? throw new InvalidOperationException("Connection string 'IdentityContextConnection' not found.");
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(
             options => options.UseSqlServer(builder.Configuration["Data:Connection"]));
+
+            builder.Services.AddDbContext<IdentityContext>(options => options.UseSqlServer(builder.Configuration["Data:Connection"]));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<IdentityContext>();
 
             var app = builder.Build();
 
@@ -29,12 +38,13 @@ namespace Projekt_zaliczeniowy
             app.UseStaticFiles();
 
             app.UseRouting();
+                        app.UseAuthentication();;
 
             app.UseAuthorization();
-
+            app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Match}/{action=Index}/{id?}");
 
             app.Run();
         }

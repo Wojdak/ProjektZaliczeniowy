@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +47,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Match/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             //Match match = new Match();
@@ -56,6 +59,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // POST: Match/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Score,TeamsList")] Match match)
@@ -73,6 +77,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Match/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Matches == null)
@@ -92,6 +97,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // POST: Match/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Score,TeamsList")] Match match)
@@ -131,6 +137,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Match/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Matches == null)
@@ -149,6 +156,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // POST: Match/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

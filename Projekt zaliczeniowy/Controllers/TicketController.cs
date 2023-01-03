@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -26,6 +28,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Ticket
+        [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Index()
         {
             var appDbContext = _context.Tickets.Include(t => t.Match);
@@ -33,6 +36,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Ticket/Details/5
+        [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Tickets == null)
@@ -52,6 +56,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Ticket/Create
+        [Authorize(Roles = "Admin,User")]
         public IActionResult Create(int? id)
         {
             Match match = _context.Matches.Find(id);
@@ -65,6 +70,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // POST: Ticket/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin,User")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
@@ -81,6 +87,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Ticket/Edit/5
+        [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Tickets == null)
@@ -99,6 +106,7 @@ namespace Projekt_zaliczeniowy.Controllers
         // POST: Ticket/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin,User")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
@@ -136,6 +144,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // GET: Ticket/Delete/5
+        [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Tickets == null)
@@ -155,6 +164,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         // POST: Ticket/Delete/5
+        [Authorize(Roles = "Admin,User")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
