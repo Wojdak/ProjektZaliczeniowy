@@ -364,6 +364,10 @@ namespace Projektzaliczeniowy.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("status");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("howManyPeople")
                         .HasColumnType("int")
                         .HasColumnName("howManyPeople");

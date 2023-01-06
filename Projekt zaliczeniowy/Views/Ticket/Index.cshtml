@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center"> Tickets</h1>
 
 
 <table class="table">
@@ -25,7 +25,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Match)
             </th>
-            <th></th>
+            <th><span>Operations</span></th>
         </tr>
     </thead>
     <tbody>
@@ -47,9 +47,9 @@
                 <a asp-action="Details" asp-controller="Match" asp-route-id="@item.Match.Id">@item.Match.Id</a>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"> <i class="fa fa-trash"></i></a>  
             </td>
         </tr>
 }

@@ -12,8 +12,8 @@ using Projekt_zaliczeniowy.Data;
 namespace Projektzaliczeniowy.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20230103131044_CreateIdentity")]
-    partial class CreateIdentity
+    [Migration("20230104152317_identity")]
+    partial class identity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

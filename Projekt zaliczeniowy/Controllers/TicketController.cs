@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,8 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Tickets.Include(t => t.Match);
+            var currentUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var appDbContext = _context.Tickets.Where(t=>t.UserId==currentUser).Include(t => t.Match);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -79,6 +81,8 @@ namespace Projekt_zaliczeniowy.Controllers
             {
                 ticket.Status = "Completed";
                 ticket.totalPrice *= ticket.howManyPeople;
+                ticket.UserId= User.FindFirstValue(ClaimTypes.NameIdentifier);
+                SubtractTicket(ticket.MatchId);
                 _context.Add(ticket);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -109,7 +113,7 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin,User")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,howManyPeople,Seats,totalPrice,Status,MatchId")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,howManyPeople,Seats,totalPrice,Status,MatchId,UserId")] Ticket ticket)
         {
             if (id != ticket.Id)
             {
@@ -186,6 +190,12 @@ namespace Projekt_zaliczeniowy.Controllers
         private bool TicketExists(int id)
         {
           return _context.Tickets.Any(e => e.Id == id);
+        }
+
+        private void SubtractTicket(int matchId)
+        {
+            var match = _context.Matches.Find(matchId);
+            match.Tickets_amount -= 1;
         }
     }
 }

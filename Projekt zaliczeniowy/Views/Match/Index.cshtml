@@ -3,10 +3,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="text-center"> Matches</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="text-center">
+    <a class="create-button border border-dark rounded p-1 " asp-action="Create"> Add new match</a>
 </p>
 
 
@@ -31,7 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
-            <th></th>
+            <th><span>Operations</span></th>
         </tr>
     </thead>
     <tbody>
@@ -75,10 +75,15 @@
                     @Html.DisplayFor(modelItem => item.Price)€
                 </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>  |
-                <a asp-action="Create" asp-controller="Ticket" asp-route-id="@item.Id">Buy ticket</a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"> <i class="fa fa-trash"></i></a>  |
+                @if(item.Tickets_amount>0){
+                    <a asp-action="Create" asp-controller="Ticket" asp-route-id="@item.Id" class="ticket-button border border-dark rounded p-1 ">Buy ticket</a>
+                } else {
+                    <span class="bold">No tickets left</span>
+                }
+                
             </td>
         </tr>
 }

@@ -57,7 +57,8 @@ namespace Projektzaliczeniowy.Migrations
                     seats = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     totalPrice = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MatchId = table.Column<int>(type: "int", nullable: false)
+                    MatchId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -12,7 +12,7 @@ using Projekt_zaliczeniowy.Models;
 namespace Projektzaliczeniowy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221229170226_init")]
+    [Migration("20230104152247_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -366,6 +366,10 @@ namespace Projektzaliczeniowy.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("status");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("howManyPeople")
                         .HasColumnType("int")
