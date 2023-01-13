@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Projekt_zaliczeniowy.Data;
 using Projekt_zaliczeniowy.Models.Interfaces;
 using Projekt_zaliczeniowy.Models.Services;
+using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 namespace Projekt_zaliczeniowy
 {
@@ -31,6 +33,18 @@ namespace Projekt_zaliczeniowy
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<IdentityContext>();
 
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Matches API", Description = "Simple, demo API for matches and teams", Version = "v1" });
+            });
+
+            builder.Services.AddMvc().AddJsonOptions(
+                options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve
+            );
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -45,9 +59,14 @@ namespace Projekt_zaliczeniowy
             app.UseStaticFiles();
 
             app.UseRouting();
-                        app.UseAuthentication();;
-
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Books API V1");
+            });
+
             app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",

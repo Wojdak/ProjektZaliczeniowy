@@ -59,7 +59,7 @@ namespace Projekt_zaliczeniowy.Models.Services
 
         public ICollection<Team> FindAll()
         {
-            return _context.Teams.ToList();
+            return _context.Teams.Include(p=>p.Players).ToList();
         }
 
         public IEnumerable<Team> GetTeamsBySearch(string search)

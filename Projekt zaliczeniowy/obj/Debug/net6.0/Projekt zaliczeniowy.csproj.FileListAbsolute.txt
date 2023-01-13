@@ -291,3 +291,7 @@ E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6
 E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\obj\Debug\net6.0\Projekt zaliczeniowy.MvcApplicationPartsAssemblyInfo.cs
 E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\libman.json
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Kuba\Documents\GitHub\ProjektZaliczeniowy\Projekt zaliczeniowy\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

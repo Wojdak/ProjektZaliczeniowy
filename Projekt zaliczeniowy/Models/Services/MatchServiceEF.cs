@@ -65,7 +65,7 @@ namespace Projekt_zaliczeniowy.Models.Services
 
         public Match? FindBy(int? id)
         {
-            var find = _context.Matches.Find(id);
+            var find = _context.Matches.Include(m => m.TeamsList).FirstOrDefault(m => m.Id == id);
             return find;
         }
 
