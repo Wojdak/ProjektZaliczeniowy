@@ -61,10 +61,6 @@ namespace Projektzaliczeniowy.Migrations
                         .HasColumnType("int")
                         .HasColumnName("price");
 
-                    b.Property<string>("Score")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("score");
-
                     b.Property<int>("Tickets_amount")
                         .HasColumnType("int")
                         .HasColumnName("tickets");
@@ -77,38 +73,38 @@ namespace Projektzaliczeniowy.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2022, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2022, 12, 26, 17, 30, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 4,
                             HostId = 2,
-                            Price = 80,
-                            Ticketsamount = 107
+                            Price = 50,
+                            Ticketsamount = 15
                         },
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2022, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2022, 12, 28, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 1,
                             HostId = 3,
-                            Price = 70,
-                            Ticketsamount = 100
+                            Price = 40,
+                            Ticketsamount = 0
                         },
                         new
                         {
                             Id = 3,
-                            Date = new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2022, 12, 31, 13, 30, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 3,
                             HostId = 4,
-                            Price = 80,
-                            Ticketsamount = 260
+                            Price = 50,
+                            Ticketsamount = 5
                         },
                         new
                         {
                             Id = 4,
-                            Date = new DateTime(2023, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2023, 1, 2, 20, 45, 0, 0, DateTimeKind.Unspecified),
                             GuestId = 2,
                             HostId = 1,
-                            Price = 75,
-                            Ticketsamount = 324
+                            Price = 45,
+                            Ticketsamount = 2
                         });
                 });
 
@@ -355,17 +351,11 @@ namespace Projektzaliczeniowy.Migrations
                     b.Property<int>("MatchId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Seats")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("seats");
-
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("status");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("howManyPeople")

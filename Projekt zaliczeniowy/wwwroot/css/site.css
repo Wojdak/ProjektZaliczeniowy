@@ -22,14 +22,13 @@ body {
     background-color: #15333a;
 }
 
-a{
+a,a:hover{
     color:white;
     text-decoration:none;
 }
 
-a:hover{
-    color:white;
-    text-shadow: 0 0 1px white !important;
+.hover-effect:hover{
+    color:#DC761D !important;
 }
 
 .navbar-brand {
@@ -44,13 +43,19 @@ a:hover{
     margin-right: 100px;
 }
 
-.login-button:hover {
-    background-color: #DC761D;
+.submit-button{
+    margin: 10px 0px;
 }
 
-.create-button,.ticket-button,.submit-button {
+.login-button:hover, .submit-button:hover,.submit-button:after {
+    background-color: #DC761D;
+    border: none;
+}
+
+.create-button, .ticket-button, .submit-button {
     font-size: 17px;
     background-color: #DC761D;
+    border: none;
 }
 
 table {
@@ -80,4 +85,10 @@ table {
 
 .fa-pen-to-square {
     color: #72f78a;
+}
+
+.form-input, .form-input:focus, .form-input:active {
+    background-color: rgba(0,0,0,0.4) !important;
+    border: none;
+    color: white;
 }

@@ -15,12 +15,12 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="HostId" class="control-label"></label>
-                <select asp-for="HostId" class="form-control" asp-items=ViewBag.selectTeam></select>
+                <select asp-for="HostId" class="form-control form-input" asp-items=ViewBag.selectTeam></select>
                 <span asp-validation-for="HostId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="GuestId" class="control-label"></label>
-                <select asp-for="GuestId" class="form-control" asp-items=ViewBag.selectTeam></select>
+                <select asp-for="GuestId" class="form-control form-input" asp-items=ViewBag.selectTeam></select>
                 <span asp-validation-for="GuestId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -28,33 +28,28 @@
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
+                <input asp-for="Date" class="form-control form-input" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tickets_amount" class="control-label"></label>
-                <input asp-for="Tickets_amount" class="form-control" />
+                <input asp-for="Tickets_amount" class="form-control form-input" />
                 <span asp-validation-for="Tickets_amount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" class="form-control form-input" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Score" class="control-label"></label>
-                <input asp-for="Score" class="form-control" />
-                <span asp-validation-for="Score" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary submit-button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="hover-effect" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

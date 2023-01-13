@@ -42,7 +42,7 @@
                 {
                     <span>Unknown data</span>
                 } else {
-                    <a asp-controller="Team" asp-action="Details" asp-route-id="@item.HostId">@item.TeamsList.First(x => x.Id == item.HostId).Name</a>
+                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.HostId">@item.TeamsList.First(x => x.Id == item.HostId).Name</a>
                 }
             </td>
             <td>
@@ -52,7 +52,7 @@
                 }
                 else
                 {
-                    <a asp-controller="Team" asp-action="Details" asp-route-id="@item.GuestId">@item.TeamsList.First(x => x.Id == item.GuestId).Name</a>
+                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.GuestId">@item.TeamsList.First(x => x.Id == item.GuestId).Name</a>
                 }
             </td>
             <td>

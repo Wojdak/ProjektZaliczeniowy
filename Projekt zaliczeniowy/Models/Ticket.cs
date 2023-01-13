@@ -15,9 +15,6 @@ namespace Projekt_zaliczeniowy.Models
         [Display(Name = "Number of people")]
         public int howManyPeople { get; set; }
         [Required]
-        [Column("seats")]
-        public string? Seats { get; set; }
-        [Required]
         [Column("totalPrice")]
         [Display(Name = "Total price")]
         public int totalPrice { get; set; }

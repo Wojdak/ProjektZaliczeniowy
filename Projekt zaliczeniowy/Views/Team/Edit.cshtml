@@ -1,4 +1,4 @@
-﻿@model Projekt_zaliczeniowy.Models.Team
+﻿@model Team
 
 @{
     ViewData["Title"] = "Edit";
@@ -15,33 +15,33 @@
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control form-input" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
+                <input asp-for="Country" class="form-control form-input" />
                 <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
+                <input asp-for="City" class="form-control form-input" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stadium" class="control-label"></label>
-                <input asp-for="Stadium" class="form-control" />
+                <input asp-for="Stadium" class="form-control form-input" />
                 <span asp-validation-for="Stadium" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary submit-button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="hover-effect" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

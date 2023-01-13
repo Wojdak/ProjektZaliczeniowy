@@ -2,48 +2,43 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projekt_zaliczeniowy.Models;
+using Projekt_zaliczeniowy.Models.Interfaces;
 
 namespace Projekt_zaliczeniowy.Controllers
 {
     public class MatchController : Controller
     {
-        private readonly AppDbContext _context;
-
-        public MatchController(AppDbContext context)
+        private readonly IMatchService _matchService;
+        private readonly ITeamService _teamService;
+        public MatchController(IMatchService matchService, ITeamService teamService)
         {
-            _context = context;
+            _matchService = matchService;
+            _teamService = teamService;
         }
 
         // GET: Match
         public async Task<IActionResult> Index(string? search)
         {
 
-            return View(await _context.Matches.Include(x=>x.TeamsList).ToListAsync());
+            return View(_matchService.FindAll());
         }
 
         // GET: Match/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Matches == null)
-            {
+            if (id == null)
                 return NotFound();
-            }
-            
-            var match = await _context.Matches
-                .FirstOrDefaultAsync(m => m.Id == id);
 
-            if (match == null)
-            {
-                return NotFound();
-            }
+            var player = _matchService.FindBy(id);
 
-            return View(match);
+            return player is null ? NotFound() : View(player);
         }
 
         // GET: Match/Create
@@ -52,7 +47,7 @@ namespace Projekt_zaliczeniowy.Controllers
         {
             //Match match = new Match();
             //_context.Teams.ToList().ForEach(x => match.TeamsList.Add(x));
-            ViewData["selectTeam"] = new SelectList(_context.Teams, "Id", "Name");
+            ViewData["selectTeam"] = new SelectList(_teamService.FindAll(), "Id", "Name");
             return View();
         }
 
@@ -62,17 +57,14 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Score,TeamsList")] Match match)
+        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,TeamsList")] Match match)
         {
             if (ModelState.IsValid)
             {
-                match.TeamsList.Add(FindTeam(match.HostId));
-                match.TeamsList.Add(FindTeam(match.GuestId));
-
-                _context.Add(match);
-                await _context.SaveChangesAsync();
+                _matchService.Save(match);
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["selectTeam"] = new SelectList(_teamService.FindAll(), "Id", "Name");
             return View(match);
         }
 
@@ -80,17 +72,15 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Matches == null)
-            {
+            if (id == null)
                 return NotFound();
-            }
 
-            var match = await _context.Matches.FindAsync(id);
-            ViewData["selectTeam"] = new SelectList(_context.Teams, "Id", "Name");
+            var match = _matchService.FindBy(id);
+
             if (match == null)
-            {
                 return NotFound();
-            }
+
+            ViewData["selectTeam"] = new SelectList(_teamService.FindAll(), "Id", "Name");
             return View(match);
         }
 
@@ -100,39 +90,14 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Score,TeamsList")] Match match)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,TeamsList")] Match match)
         {
-            if (id != match.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Database.ExecuteSqlRaw($"DELETE FROM [MatchTeam] WHERE MatchesId={match.Id}");
-
-                    match.TeamsList.Clear();
-                    match.TeamsList.Add(FindTeam(match.HostId));
-                    match.TeamsList.Add(FindTeam(match.GuestId));
-
-                    _context.Update(match);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MatchExists(match.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _matchService.Update(match);
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["selectTeam"] = new SelectList(_teamService.FindAll(), "Id", "Name");
             return View(match);
         }
 
@@ -140,19 +105,12 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Matches == null)
-            {
+            if (id == null)
                 return NotFound();
-            }
 
-            var match = await _context.Matches
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (match == null)
-            {
-                return NotFound();
-            }
+            var team = _matchService.FindBy(id);
 
-            return View(match);
+            return team is null ? NotFound() : View(team);
         }
 
         // POST: Match/Delete/5
@@ -161,28 +119,11 @@ namespace Projekt_zaliczeniowy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Matches == null)
+            if (_matchService.Delete(id))
             {
-                return Problem("Entity set 'AppDbContext.Matches'  is null.");
+                return RedirectToAction(nameof(Index));
             }
-            var match = await _context.Matches.FindAsync(id);
-            if (match != null)
-            {
-                _context.Matches.Remove(match);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool MatchExists(int id)
-        {
-          return _context.Matches.Any(e => e.Id == id);
-        }
-
-        private Team FindTeam(int id)
-        {
-            return _context.Teams.Find(id);
+            return Problem("Trying delete no existing match");
         }
     }
 }

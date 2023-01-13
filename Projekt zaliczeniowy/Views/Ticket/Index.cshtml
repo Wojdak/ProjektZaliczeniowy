@@ -14,9 +14,6 @@
                 @Html.DisplayNameFor(model => model.howManyPeople)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Seats)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.totalPrice)
             </th>
             <th>
@@ -35,16 +32,13 @@
                 @Html.DisplayFor(modelItem => item.howManyPeople)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Seats)
-            </td>
-            <td>
                  @Html.DisplayFor(modelItem => item.totalPrice)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a asp-action="Details" asp-controller="Match" asp-route-id="@item.Match.Id">@item.Match.Id</a>
+                <a class="hover-effect" asp-action="Details" asp-controller="Match" asp-route-id="@item.Match.Id">@item.Match.Id</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a> |

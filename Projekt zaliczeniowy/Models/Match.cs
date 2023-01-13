@@ -35,8 +35,6 @@ namespace Projekt_zaliczeniowy.Models
         [Column("price")]
         [Display(Name = "Price")]
         public int Price { get; set; }
-        [Column("score")]
-        public string? Score { get; set; }
         [HiddenInput]
         public List<Team> TeamsList { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }

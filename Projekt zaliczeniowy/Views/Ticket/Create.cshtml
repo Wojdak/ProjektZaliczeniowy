@@ -14,36 +14,31 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="howManyPeople" class="control-label"></label>
-                <input asp-for="howManyPeople" class="form-control" value=1/>
+                <input asp-for="howManyPeople" class="form-control form-input" value=1 />
                 <span asp-validation-for="howManyPeople" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Seats" class="control-label"></label>
-                <input asp-for="Seats" class="form-control" />
-                <span asp-validation-for="Seats" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="totalPrice" class="control-label"></label>
-                <input asp-for="totalPrice" class="form-control" />
+                <input asp-for="totalPrice" class="form-control form-input" />
                 <span asp-validation-for="totalPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input readonly=true asp-for="Status" class="form-control" />
+                <input readonly=true asp-for="Status" class="form-control form-input" />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="hidden" asp-for="MatchId" class="form-control">
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary submit-button" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class ="hover-effect" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
