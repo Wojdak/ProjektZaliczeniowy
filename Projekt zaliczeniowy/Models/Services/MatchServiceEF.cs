@@ -46,7 +46,7 @@ namespace Projekt_zaliczeniowy.Models.Services
                     find.Tickets_amount = match.Tickets_amount;
                     find.Price=match.Price;
 
-                    _context.Database.ExecuteSqlRaw($"DELETE FROM [MatchTeam] WHERE MatchesId={match.Id}");
+                    //_context.Database.ExecuteSqlRaw($"DELETE FROM [MatchTeam] WHERE MatchesId={match.Id}");
 
                     find.TeamsList.Clear();
                     find.TeamsList.Add(FindTeam(match.HostId));

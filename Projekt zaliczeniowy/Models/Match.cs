@@ -10,7 +10,7 @@ namespace Projekt_zaliczeniowy.Models
         public Match()
         {
             Tickets = new List<Ticket>();
-            TeamsList = new List<Team>();
+            Teams = new List<Team>();
         }
 
         [Key]
@@ -36,7 +36,7 @@ namespace Projekt_zaliczeniowy.Models
         [Display(Name = "Price")]
         public int Price { get; set; }
         [HiddenInput]
-        public List<Team> TeamsList { get; set; }
+        public virtual ICollection<Team> Teams { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

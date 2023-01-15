@@ -22,21 +22,6 @@ namespace Projektzaliczeniowy.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MatchTeam", b =>
-                {
-                    b.Property<int>("MatchesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TeamsListId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MatchesId", "TeamsListId");
-
-                    b.HasIndex("TeamsListId");
-
-                    b.ToTable("MatchTeam");
-                });
-
             modelBuilder.Entity("Projekt_zaliczeniowy.Models.Match", b =>
                 {
                     b.Property<int>("Id")
@@ -291,6 +276,9 @@ namespace Projektzaliczeniowy.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("country");
 
+                    b.Property<int?>("MatchId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -302,6 +290,8 @@ namespace Projektzaliczeniowy.Migrations
                         .HasColumnName("stadium");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MatchId");
 
                     b.ToTable("Teams");
 
@@ -373,21 +363,6 @@ namespace Projektzaliczeniowy.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("MatchTeam", b =>
-                {
-                    b.HasOne("Projekt_zaliczeniowy.Models.Match", null)
-                        .WithMany()
-                        .HasForeignKey("MatchesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Projekt_zaliczeniowy.Models.Team", null)
-                        .WithMany()
-                        .HasForeignKey("TeamsListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Projekt_zaliczeniowy.Models.Player", b =>
                 {
                     b.HasOne("Projekt_zaliczeniowy.Models.Team", "Team")
@@ -397,6 +372,13 @@ namespace Projektzaliczeniowy.Migrations
                         .IsRequired();
 
                     b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("Projekt_zaliczeniowy.Models.Team", b =>
+                {
+                    b.HasOne("Projekt_zaliczeniowy.Models.Match", null)
+                        .WithMany("TeamsList")
+                        .HasForeignKey("MatchId");
                 });
 
             modelBuilder.Entity("Projekt_zaliczeniowy.Models.Ticket", b =>
@@ -412,6 +394,8 @@ namespace Projektzaliczeniowy.Migrations
 
             modelBuilder.Entity("Projekt_zaliczeniowy.Models.Match", b =>
                 {
+                    b.Navigation("TeamsList");
+
                     b.Navigation("Tickets");
                 });
 
