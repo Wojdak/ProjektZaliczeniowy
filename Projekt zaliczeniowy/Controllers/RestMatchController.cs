@@ -18,7 +18,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Match?>>> GetMatches()
+        public ActionResult<IEnumerable<Match?>> GetMatches()
         {
             if (_matchService is null)
                 return NotFound();
@@ -27,18 +27,18 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Match>> GetMatch(int id)
+        public ActionResult<Match> GetMatch(int id)
         {
             if (_matchService == null)
                 return NotFound();
 
-            var book = _matchService.FindBy(id);
+            var match = _matchService.FindBy(id);
 
-            return book is null ? NotFound() : book;
+            return match is null ? NotFound() : match;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Match>> PostBook(Match match)
+        public ActionResult<Match> PostMatch(Match match)
         {
             if (_matchService == null)
                 return Problem("Entity set 'AppDbContext.Match'  is null.");
@@ -55,16 +55,16 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMatch(int id)
+        public IActionResult DeleteMatch(int id)
         {
-            if (_matchService == null)
+            if (_matchService == null || _matchService.FindBy(id) == null)
             {
                 return NotFound();
             }
 
-            var book = _matchService.Delete(id);
+            var match = _matchService.Delete(id);
 
-            if (book == null)
+            if (match == null)
             {
                 return NotFound();
             }
@@ -73,7 +73,7 @@ namespace Projekt_zaliczeniowy.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMatch(int id, Match? match)
+        public IActionResult PutMatch(int id, Match? match)
         {
             if (id != match.Id)
                 return BadRequest();
