@@ -57,7 +57,7 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,TeamsList")] Match match)
+        public async Task<IActionResult> Create([Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Teams")] Match match)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Projekt_zaliczeniowy.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,TeamsList")] Match match)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,HostId,GuestId,Date,Tickets_amount,Price,Teams")] Match match)
         {
             if (ModelState.IsValid)
             {

@@ -59,6 +59,7 @@ namespace Projekt_zaliczeniowy
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwagger();

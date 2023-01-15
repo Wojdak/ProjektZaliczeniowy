@@ -38,34 +38,34 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @if (@item.TeamsList.FirstOrDefault(x => x.Id == item.HostId) == null)
+                @if (@item.Teams.FirstOrDefault(x => x.Id == item.HostId) == null)
                 {
                     <span>Unknown data</span>
                 } else {
-                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.HostId">@item.TeamsList.First(x => x.Id == item.HostId).Name</a>
+                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.HostId">@item.Teams.First(x => x.Id == item.HostId).Name</a>
                 }
             </td>
             <td>
-                @if (@item.TeamsList.FirstOrDefault(x => x.Id == item.GuestId) == null)
+                @if (@item.Teams.FirstOrDefault(x => x.Id == item.GuestId) == null)
                 {
                     <span>Unknown data</span>
                 }
                 else
                 {
-                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.GuestId">@item.TeamsList.First(x => x.Id == item.GuestId).Name</a>
+                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.GuestId">@item.Teams.First(x => x.Id == item.GuestId).Name</a>
                 }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                    @if (@item.TeamsList.FirstOrDefault(x => x.Id == item.HostId) == null)
+                    @if (@item.Teams.FirstOrDefault(x => x.Id == item.HostId) == null)
                     {
                         <span>Unknown data</span>
                     }
                     else
                     {
-                       @item.TeamsList.First(x => x.Id == item.HostId).Stadium
+                       @item.Teams.First(x => x.Id == item.HostId).Stadium
                     }
             </td>
                 <td>

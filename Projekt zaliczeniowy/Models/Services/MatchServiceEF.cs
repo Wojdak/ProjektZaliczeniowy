@@ -13,8 +13,8 @@ namespace Projekt_zaliczeniowy.Models.Services
 
         public int Save(Match match)
         {
-            match.TeamsList.Add(FindTeam(match.HostId));
-            match.TeamsList.Add(FindTeam(match.GuestId));
+            match.Teams.Add(FindTeam(match.HostId));
+            match.Teams.Add(FindTeam(match.GuestId));
             var entityEntry = _context.Matches.Add(match);
             _context.SaveChanges();
             return entityEntry.Entity.Id;
@@ -38,20 +38,21 @@ namespace Projekt_zaliczeniowy.Models.Services
             try
             {
                 var find = _context.Matches.Find(match.Id);
+                
                 if (find is not null)
                 {
+                    
                     find.HostId = match.HostId;
                     find.GuestId=match.GuestId;
                     find.Date = match.Date;
                     find.Tickets_amount = match.Tickets_amount;
                     find.Price=match.Price;
 
-                    //_context.Database.ExecuteSqlRaw($"DELETE FROM [MatchTeam] WHERE MatchesId={match.Id}");
+                    _context.Database.ExecuteSqlRaw($"DELETE FROM [MatchTeam] WHERE MatchesId={match.Id}");
 
-                    find.TeamsList.Clear();
-                    find.TeamsList.Add(FindTeam(match.HostId));
-                    find.TeamsList.Add(FindTeam(match.GuestId));
-
+                    find.Teams.Clear();
+                    find.Teams.Add(FindTeam(match.HostId));
+                    find.Teams.Add(FindTeam(match.GuestId));
                     _context.SaveChanges();
                     return true;
                 }
@@ -65,13 +66,13 @@ namespace Projekt_zaliczeniowy.Models.Services
 
         public Match? FindBy(int? id)
         {
-            var find = _context.Matches.Include(m => m.TeamsList).FirstOrDefault(m => m.Id == id);
+            var find = _context.Matches.Include(m => m.Teams).FirstOrDefault(m => m.Id == id);
             return find;
         }
 
         public ICollection<Match> FindAll()
         {
-            return _context.Matches.Include(m => m.TeamsList).ToList();
+            return _context.Matches.Include(m => m.Teams).ToList();
         }
 
         public Team FindTeam(int id)
