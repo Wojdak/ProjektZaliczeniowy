@@ -21,6 +21,7 @@ namespace Projekt_zaliczeniowy.Models
         public string? Nationality { get; set; }
         [Required]
         [Column("date_of_birth")]
+        [DataType(DataType.Date)]
         [Display(Name="Date of birth")]
         public DateTime? Date_of_birth { get; set; }
         [Required]

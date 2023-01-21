@@ -72,7 +72,13 @@ namespace Projekt_zaliczeniowy.Models.Services
 
         public ICollection<Match> FindAll()
         {
-            return _context.Matches.Include(m => m.Teams).ToList();
+            var finds = _context.Matches.Include(m => m.Teams).ToList();
+            foreach(var item in finds)
+            {
+                item.Teams.Add(FindTeam(item.HostId));
+                item.Teams.Add(FindTeam(item.GuestId));
+            }
+            return finds;
         }
 
         public Team FindTeam(int id)

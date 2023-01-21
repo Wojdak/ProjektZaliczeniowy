@@ -53,6 +53,8 @@ namespace Projekt_zaliczeniowy.Controllers
             ticket.MatchId = match.Id;
             ticket.totalPrice = match.Price;
             ticket.Status = "In process";
+
+            ViewBag.maxValue = match.Tickets_amount;
             return View(ticket);
         }
 
@@ -84,6 +86,8 @@ namespace Projekt_zaliczeniowy.Controllers
 
             if (ticket == null)
                 return NotFound();
+
+            ViewBag.maxValue = _matchService.FindBy(ticket.MatchId).Tickets_amount + ticket.howManyPeople;
             return View(ticket);
         }
 

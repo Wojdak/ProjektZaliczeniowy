@@ -7,6 +7,7 @@
         public bool Update(Ticket ticket);
         public Ticket? FindBy(int? id);
         public ICollection<Ticket> FindAll(string userId);
-        public void SubtractTicket(int matchId);
+        public void SubtractTicket(int matchId,int howMany);
+        public void AddTicket(int matchId, int howMany);
     }
 }

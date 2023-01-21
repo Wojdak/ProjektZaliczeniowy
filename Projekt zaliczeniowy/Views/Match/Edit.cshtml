@@ -33,12 +33,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tickets_amount" class="control-label"></label>
-                <input asp-for="Tickets_amount" class="form-control form-input" />
+                <input asp-for="Tickets_amount" class="form-control form-input" min="1" />
                 <span asp-validation-for="Tickets_amount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control form-input" />
+                <input asp-for="Price" class="form-control form-input" min="1" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">

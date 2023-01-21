@@ -18,9 +18,12 @@ namespace Projekt_zaliczeniowy.Models.Services
             ticket.Status = "Completed";
             ticket.totalPrice *= ticket.howManyPeople;
             ticket.UserId = userId;
-            SubtractTicket(ticket.MatchId);
+
+            SubtractTicket(ticket.MatchId,ticket.howManyPeople);
+
             var entityEntry = _context.Tickets.Add(ticket);
             _context.SaveChanges();
+
             return entityEntry.Entity.Id;
         }
 
@@ -31,6 +34,7 @@ namespace Projekt_zaliczeniowy.Models.Services
             if (find is not null)
             {
                 _context.Tickets.Remove(find);
+                AddTicket(find.MatchId, find.howManyPeople);
                 _context.SaveChanges();
                 return true;
             }
@@ -46,11 +50,17 @@ namespace Projekt_zaliczeniowy.Models.Services
                 {
                     var _match = _context.Matches.Find(ticket.MatchId);
 
+                    if (find.howManyPeople > ticket.howManyPeople)
+                        AddTicket(ticket.MatchId, (find.howManyPeople - ticket.howManyPeople));
+                    else
+                        SubtractTicket(ticket.MatchId, (ticket.howManyPeople - find.howManyPeople));
+
                     find.howManyPeople = ticket.howManyPeople;
                     find.totalPrice = ticket.howManyPeople * _match.Price;
                     find.Status = "Edited";
                     find.MatchId = ticket.MatchId;
-                    find.UserId = ticket.UserId;
+                    find.UserId = ticket.UserId;  
+
                     _context.SaveChanges();
                     return true;
                 }
@@ -71,10 +81,15 @@ namespace Projekt_zaliczeniowy.Models.Services
         {
             return _context.Tickets.Where(t => t.UserId == userId).Include(t => t.Match).ToList();
         }
-        public void SubtractTicket(int matchId)
+        public void SubtractTicket(int matchId, int howMany)
         {
             var match = _context.Matches.Find(matchId);
-            match.Tickets_amount -= 1;
+            match.Tickets_amount -= howMany;
+        }
+        public void AddTicket(int matchId, int howMany)
+        {
+            var match = _context.Matches.Find(matchId);
+            match.Tickets_amount += howMany;
         }
 
 

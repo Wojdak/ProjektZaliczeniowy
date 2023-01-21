@@ -46,7 +46,7 @@
                 }
             </td>
             <td>
-                @if (@item.Teams.FirstOrDefault(x => x.Id == item.GuestId) == null)
+                    @if (@item.Teams.FirstOrDefault(x => x.Id == item.GuestId) == null)
                 {
                     <span>Unknown data</span>
                 }

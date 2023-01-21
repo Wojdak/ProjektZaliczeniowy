@@ -47,6 +47,22 @@ namespace Projektzaliczeniowy.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            ConcurrencyStamp = "54b32ff4-1c54-401f-9f2f-dc3308101718",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            ConcurrencyStamp = "a0cc1b11-f844-42e4-a1ce-e926cd077b4f",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -137,6 +153,56 @@ namespace Projektzaliczeniowy.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ef393d67-82d7-4049-8015-2a1b24a90c69",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "21132995-7071-4b2b-a2db-f91b6bd9a660",
+                            Email = "admin@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "ADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHr/6TebkIYo681QAFHu/GwUmHjQPCSZNvxjkUzE46FQawduDJKLRmp2xAHTHBoCtw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "99c28098-3a7c-4fd1-8e67-4f04dbbe9fa5",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "9b2bbed4-4753-445c-b47e-4d0eaa925455",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "85488925-a736-4353-9224-8bb4a5cdbb16",
+                            Email = "nowak@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NOWAK@GMAIL.COM",
+                            NormalizedUserName = "NOWAK@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGeFbN3LgOPOBiU0KiCPV8y+OnE19N3YouckvJ3aTAcr43ScHiFpau1GmvjMhMsmuA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "8a500922-e259-4c12-bc74-c7f9970f9050",
+                            TwoFactorEnabled = false,
+                            UserName = "nowak@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8eb05e1e-00e4-49bd-8b96-b54cc107f535",
+                            Email = "kowalski@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "KOWALSKI@GMAIL.COM",
+                            NormalizedUserName = "KOWALSKI@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHCz+pxX/BhFNepzvlVdVhRhiEHuiHBGj6tv6JVxu1jiCeUSWeafHXUcaMiZOYmhjw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "95df48dc-de75-4b57-9d77-744c6ae58d9b",
+                            TwoFactorEnabled = false,
+                            UserName = "kowalski@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -201,6 +267,23 @@ namespace Projektzaliczeniowy.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "ef393d67-82d7-4049-8015-2a1b24a90c69",
+                            RoleId = "1"
+                        },
+                        new
+                        {
+                            UserId = "9b2bbed4-4753-445c-b47e-4d0eaa925455",
+                            RoleId = "2"
+                        },
+                        new
+                        {
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                            RoleId = "2"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
