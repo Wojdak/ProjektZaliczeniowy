@@ -66,7 +66,7 @@ namespace Projekt_zaliczeniowy.Models.Services
 
         public IEnumerable<Player> GetTeamsBySearch(string search)
         {
-            var result = _context.Players.Where(x => x.Name.Contains(search) || x.Surname.Contains(search) || x.Nationality.Contains(search) || x.Position.Contains(search) || x.Team.Name.Contains(search)).Include(p => p.Team);
+            var result = _context.Players.Where(x => x.Name.Contains(search) || x.Surname.Contains(search) || x.Nationality.Contains(search) || x.Date_of_birth.ToString().Contains(search) || x.Position.Contains(search) || x.Team.Name.Contains(search)).Include(p => p.Team);
             return result;
         }
     }

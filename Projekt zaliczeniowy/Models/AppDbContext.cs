@@ -24,7 +24,7 @@ namespace Projekt_zaliczeniowy.Models
 
             modelBuilder.Entity<Player>().HasData(
                     new Player() { Id = 1, Name = "Gabriel", Surname = "Jesus", Nationality = "Brazilian", Date_of_birth = DateTime.Parse("1997-04-03"), Position = "Attacker", TeamId=2 },
-                    new Player() { Id = 2, Name = "Martin", Surname = "odegaard", Nationality = "Norwegian", Date_of_birth = DateTime.Parse("1998-12-17"), Position = "Midfielder", TeamId = 2 },
+                    new Player() { Id = 2, Name = "Martin", Surname = "Odegaard", Nationality = "Norwegian", Date_of_birth = DateTime.Parse("1998-12-17"), Position = "Midfielder", TeamId = 2 },
                     new Player() { Id = 3, Name = "Kieran", Surname = "Tierney", Nationality = "Scottish", Date_of_birth = DateTime.Parse("1997-06-05"), Position = "Defender", TeamId = 2 },
 
                     new Player() { Id = 4, Name = "Erling", Surname = "Haaland", Nationality = "Norwegian", Date_of_birth = DateTime.Parse("2000-07-21"), Position = "Attacker", TeamId = 1 },
