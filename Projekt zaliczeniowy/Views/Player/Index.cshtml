@@ -55,7 +55,7 @@
                 @Html.DisplayFor(modelItem => item.Position)
             </td>
             <td>
-                    <a class="hover-effect" asp-action="Details" asp-controller="Team" asp-route-id="@item.Team.Id">@Html.DisplayFor(modelItem => item.Team.Name)</a>
+                    <a class="hover-effect text-decoration-underline" asp-action="Details" asp-controller="Team" asp-route-id="@item.Team.Id">@Html.DisplayFor(modelItem => item.Team.Name)</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a> |

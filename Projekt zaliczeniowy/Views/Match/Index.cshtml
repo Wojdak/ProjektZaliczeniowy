@@ -38,34 +38,34 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @if (@item.Teams.FirstOrDefault(x => x.Id == item.HostId) == null)
+                @if (@item.Teams.ElementAtOrDefault(0) == null)
                 {
                     <span>Unknown data</span>
                 } else {
-                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.HostId">@item.Teams.First(x => x.Id == item.HostId).Name</a>
+                        <a class="hover-effect text-decoration-underline" asp-controller="Team" asp-action="Details" asp-route-id="@item.HostId">@item.Teams.ElementAtOrDefault(0).Name</a>
                 }
             </td>
             <td>
-                    @if (@item.Teams.FirstOrDefault(x => x.Id == item.GuestId) == null)
+                    @if (@item.Teams.ElementAtOrDefault(1) == null)
                 {
                     <span>Unknown data</span>
                 }
                 else
                 {
-                    <a class="hover-effect" asp-controller="Team" asp-action="Details" asp-route-id="@item.GuestId">@item.Teams.First(x => x.Id == item.GuestId).Name</a>
+                       <a class="hover-effect text-decoration-underline" asp-controller="Team" asp-action="Details" asp-route-id="@item.GuestId">@item.Teams.ElementAtOrDefault(1).Name</a>
                 }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                    @if (@item.Teams.FirstOrDefault(x => x.Id == item.HostId) == null)
+                    @if (@item.Teams.ElementAtOrDefault(0) == null)
                     {
                         <span>Unknown data</span>
                     }
                     else
                     {
-                       @item.Teams.First(x => x.Id == item.HostId).Stadium
+                        @item.Teams.ElementAtOrDefault(0).Stadium
                     }
             </td>
                 <td>

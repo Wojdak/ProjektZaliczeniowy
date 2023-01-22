@@ -38,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                <a class="hover-effect" asp-action="Details" asp-controller="Match" asp-route-id="@item.Match.Id">@item.Match.Id</a>
+                <a class="hover-effect text-decoration-underline" asp-action="Details" asp-controller="Match" asp-route-id="@item.Match.Id">@item.Match.Id</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a> |

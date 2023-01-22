@@ -12,7 +12,7 @@ using Projekt_zaliczeniowy.Models;
 namespace Projektzaliczeniowy.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230121140353_init")]
+    [Migration("20230122134211_init")]
     partial class init
     {
         /// <inheritdoc />

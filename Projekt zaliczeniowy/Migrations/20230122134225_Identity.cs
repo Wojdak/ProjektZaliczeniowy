@@ -163,8 +163,8 @@ namespace Projektzaliczeniowy.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1", "54b32ff4-1c54-401f-9f2f-dc3308101718", "Admin", "ADMIN" },
-                    { "2", "a0cc1b11-f844-42e4-a1ce-e926cd077b4f", "User", "USER" }
+                    { "1", "5580be2a-4934-4f79-8598-3b9bc9fa56e9", "Admin", "ADMIN" },
+                    { "2", "9484050b-590c-4fa1-91dd-1f1e0631a6b1", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -172,9 +172,9 @@ namespace Projektzaliczeniowy.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "8eb05e1e-00e4-49bd-8b96-b54cc107f535", "kowalski@gmail.com", true, false, null, "KOWALSKI@GMAIL.COM", "KOWALSKI@GMAIL.COM", "AQAAAAEAACcQAAAAEHCz+pxX/BhFNepzvlVdVhRhiEHuiHBGj6tv6JVxu1jiCeUSWeafHXUcaMiZOYmhjw==", null, false, "95df48dc-de75-4b57-9d77-744c6ae58d9b", false, "kowalski@gmail.com" },
-                    { "9b2bbed4-4753-445c-b47e-4d0eaa925455", 0, "85488925-a736-4353-9224-8bb4a5cdbb16", "nowak@gmail.com", true, false, null, "NOWAK@GMAIL.COM", "NOWAK@GMAIL.COM", "AQAAAAEAACcQAAAAEGeFbN3LgOPOBiU0KiCPV8y+OnE19N3YouckvJ3aTAcr43ScHiFpau1GmvjMhMsmuA==", null, false, "8a500922-e259-4c12-bc74-c7f9970f9050", false, "nowak@gmail.com" },
-                    { "ef393d67-82d7-4049-8015-2a1b24a90c69", 0, "21132995-7071-4b2b-a2db-f91b6bd9a660", "admin@gmail.com", true, false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEHr/6TebkIYo681QAFHu/GwUmHjQPCSZNvxjkUzE46FQawduDJKLRmp2xAHTHBoCtw==", null, false, "99c28098-3a7c-4fd1-8e67-4f04dbbe9fa5", false, "admin@gmail.com" }
+                    { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "766bef80-cb4d-4343-9eb6-129297dcf024", "kowalski@gmail.com", true, false, null, "KOWALSKI@GMAIL.COM", "KOWALSKI@GMAIL.COM", "AQAAAAEAACcQAAAAEGdJtVbk1RSelsTwL3cc8aS2T79EYzoFs9m2q4gxJRvImd9dyDE8GLYHa/nW4vEiuw==", null, false, "0bae91e3-391d-4ae8-81fc-926e9786e386", false, "kowalski@gmail.com" },
+                    { "9b2bbed4-4753-445c-b47e-4d0eaa925455", 0, "fd46cffb-4d2d-44cf-8822-bae2d3008ba3", "nowak@gmail.com", true, false, null, "NOWAK@GMAIL.COM", "NOWAK@GMAIL.COM", "AQAAAAEAACcQAAAAEJOYBVxPT4+4aZ0Qf50wIe7eTbkEvcpYiOpRXWJibOewQG3k63b0EsQ20COiGbu54A==", null, false, "8233f240-bb10-40e7-8aa0-5a7d8b97aca1", false, "nowak@gmail.com" },
+                    { "ef393d67-82d7-4049-8015-2a1b24a90c69", 0, "f80f0c18-5bd4-4fad-aa38-0f736e28f699", "admin@gmail.com", true, false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAECGman+uhFdBHaNZOFg0fVxcf/1l1HG5F/Ble5azbJ2zK1tj7zs5cuvSql3krtUriA==", null, false, "5f7c854e-b73e-4556-849e-921b0b8354b8", false, "admin@gmail.com" }
                 });
 
             migrationBuilder.InsertData(

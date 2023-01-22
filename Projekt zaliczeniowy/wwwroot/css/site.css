@@ -47,8 +47,8 @@ a,a:hover{
     margin: 10px 0px;
 }
 
-.login-button:hover, .submit-button:hover,.submit-button:after {
-    background-color: #DC761D;
+.login-button:hover, .submit-button:hover,.submit-button:after,.ticket-button:hover,.create-button:hover {
+    background-color: #b86721 !important;
     border: none;
 }
 

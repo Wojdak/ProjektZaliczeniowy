@@ -73,7 +73,7 @@ namespace Projekt_zaliczeniowy.Models.Services
         }
         public Ticket? FindBy(int? id)
         {
-            var find = _context.Tickets.Find(id);
+            var find = _context.Tickets.Include(t=>t.Match).FirstOrDefault(t=>t.Id==id);
             return find;
         }
 

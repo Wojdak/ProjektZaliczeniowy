@@ -32,7 +32,7 @@
             @Html.DisplayNameFor(model => model.Match)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Match.Id)
+            <a class="hover-effect text-decoration-underline" asp-action="Details" asp-controller="Match" asp-route-id="@Model.MatchId">@Html.DisplayFor(model => model.MatchId)</a>
         </dd>
     </dl>
 </div>

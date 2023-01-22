@@ -12,7 +12,7 @@ using Projekt_zaliczeniowy.Data;
 namespace Projektzaliczeniowy.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20230121140415_Identity")]
+    [Migration("20230122134225_Identity")]
     partial class Identity
     {
         /// <inheritdoc />
@@ -55,14 +55,14 @@ namespace Projektzaliczeniowy.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "54b32ff4-1c54-401f-9f2f-dc3308101718",
+                            ConcurrencyStamp = "5580be2a-4934-4f79-8598-3b9bc9fa56e9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "a0cc1b11-f844-42e4-a1ce-e926cd077b4f",
+                            ConcurrencyStamp = "9484050b-590c-4fa1-91dd-1f1e0631a6b1",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -162,15 +162,15 @@ namespace Projektzaliczeniowy.Migrations
                         {
                             Id = "ef393d67-82d7-4049-8015-2a1b24a90c69",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "21132995-7071-4b2b-a2db-f91b6bd9a660",
+                            ConcurrencyStamp = "f80f0c18-5bd4-4fad-aa38-0f736e28f699",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHr/6TebkIYo681QAFHu/GwUmHjQPCSZNvxjkUzE46FQawduDJKLRmp2xAHTHBoCtw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECGman+uhFdBHaNZOFg0fVxcf/1l1HG5F/Ble5azbJ2zK1tj7zs5cuvSql3krtUriA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "99c28098-3a7c-4fd1-8e67-4f04dbbe9fa5",
+                            SecurityStamp = "5f7c854e-b73e-4556-849e-921b0b8354b8",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
@@ -178,15 +178,15 @@ namespace Projektzaliczeniowy.Migrations
                         {
                             Id = "9b2bbed4-4753-445c-b47e-4d0eaa925455",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "85488925-a736-4353-9224-8bb4a5cdbb16",
+                            ConcurrencyStamp = "fd46cffb-4d2d-44cf-8822-bae2d3008ba3",
                             Email = "nowak@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "NOWAK@GMAIL.COM",
                             NormalizedUserName = "NOWAK@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGeFbN3LgOPOBiU0KiCPV8y+OnE19N3YouckvJ3aTAcr43ScHiFpau1GmvjMhMsmuA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJOYBVxPT4+4aZ0Qf50wIe7eTbkEvcpYiOpRXWJibOewQG3k63b0EsQ20COiGbu54A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a500922-e259-4c12-bc74-c7f9970f9050",
+                            SecurityStamp = "8233f240-bb10-40e7-8aa0-5a7d8b97aca1",
                             TwoFactorEnabled = false,
                             UserName = "nowak@gmail.com"
                         },
@@ -194,15 +194,15 @@ namespace Projektzaliczeniowy.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8eb05e1e-00e4-49bd-8b96-b54cc107f535",
+                            ConcurrencyStamp = "766bef80-cb4d-4343-9eb6-129297dcf024",
                             Email = "kowalski@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "KOWALSKI@GMAIL.COM",
                             NormalizedUserName = "KOWALSKI@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHCz+pxX/BhFNepzvlVdVhRhiEHuiHBGj6tv6JVxu1jiCeUSWeafHXUcaMiZOYmhjw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGdJtVbk1RSelsTwL3cc8aS2T79EYzoFs9m2q4gxJRvImd9dyDE8GLYHa/nW4vEiuw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "95df48dc-de75-4b57-9d77-744c6ae58d9b",
+                            SecurityStamp = "0bae91e3-391d-4ae8-81fc-926e9786e386",
                             TwoFactorEnabled = false,
                             UserName = "kowalski@gmail.com"
                         });
